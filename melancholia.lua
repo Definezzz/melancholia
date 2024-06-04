@@ -1,3 +1,22 @@
+--[[
+		
+
+███╗░░██╗███████╗██████╗░██╗░░░██╗██╗░░░░░░█████╗░░░░████████╗███████╗░█████╗░██╗░░██╗
+████╗░██║██╔════╝██╔══██╗██║░░░██║██║░░░░░██╔══██╗░░░╚══██╔══╝██╔════╝██╔══██╗██║░░██║
+██╔██╗██║█████╗░░██████╦╝██║░░░██║██║░░░░░███████║░░░░░░██║░░░█████╗░░██║░░╚═╝███████║
+██║╚████║██╔══╝░░██╔══██╗██║░░░██║██║░░░░░██╔══██║░░░░░░██║░░░██╔══╝░░██║░░██╗██╔══██║
+██║░╚███║███████╗██████╦╝╚██████╔╝███████╗██║░░██║██╗░░░██║░░░███████╗╚█████╔╝██║░░██║
+╚═╝░░╚══╝╚══════╝╚═════╝░░╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░░╚═╝░░░╚══════╝░╚════╝░╚═╝░░╚═╝
+
+// Fixed by @finobe 28/05/24 :^) \\ 
+
+
+Enjoy skidding this terrific code from april btw
+
+fixed target aim blah blah
+]]
+
+
 if not LPH_OBFUSCATED then
     getfenv().LPH_NO_VIRTUALIZE = function(...) return (...) end;
 end
@@ -7,8 +26,8 @@ local Library = {};
 local Library = {
 	Open = true;
 	Folders = {
-		main = "Melancholia";
-		configs = "Melancholia/Configs";
+		main = "test";
+		configs = "test/Configs";
 	};
 	Accent = Color3.fromRGB(132,108,188);
 	Pages = {};
@@ -4789,8 +4808,8 @@ do
 		do 
 			utility.drawings["Tracer"] = utility:drawObject("Line", {})
 			utility.drawings["Aim Assist FOV"] = utility:drawObject("Circle", {Visible = false, Radius = 8, Color = Color3.fromRGB(0,0,0), Filled = false})
-			utility.drawings["Sub"] = utility:drawObject("Text", {Outline = true, Text = "melan", Color = Color3.new(1, 1, 1), Size = 13})
-			utility.drawings["Domain"] = utility:drawObject("Text", {Outline = true, Text = "cholia", Color = Color3.fromRGB(132, 108, 188), Size = 13})
+			utility.drawings["Sub"] = utility:drawObject("Text", {Outline = true, Text = "melancholia", Color = Color3.new(1, 1, 1), Size = 13})
+			utility.drawings["Domain"] = utility:drawObject("Text", {Outline = true, Text = ".lua", Color = Color3.fromRGB(132, 108, 188), Size = 13})
 			--
 			for i,v in pairs(bodyClone:GetDescendants()) do 
 				if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then 
@@ -4837,7 +4856,7 @@ do
 						"YoUr A BoOt",
 						"keep Trying You Jobby",
 					},
-					["Melancholia"] = {
+					["melancholia"] = {
 						"Owned By Melancholia",
 						"Melancholia Melancholia Melancholia RAHHHHH",
 						"Slammed by Melancholia",
@@ -5697,16 +5716,16 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		Cfgs:Textbox({Flag = "SettingsConfigurationName", Placeholder = "Config name"})
 		--
 		local CurrentList = {};
-		if not isfolder("Melancholia") then 
-			makefolder("Melancholia")
+		if not isfolder("melancholia") then 
+			makefolder("melancholia")
 		end 
-		if not isfolder("Melancholia/Configs") then 
-			makefolder("Melancholia/Configs")
+		if not isfolder("melancholia/Configs") then 
+			makefolder("melancholia/Configs")
 		end 
 		local function UpdateConfigList()
 			local List = {};
-			for idx, file in ipairs(listfiles("Melancholia/Configs")) do
-				local FileName = file:gsub("Melancholia/Configs\\", ""):gsub(".cfg", "")
+			for idx, file in ipairs(listfiles("melancholia/Configs")) do
+				local FileName = file:gsub("melancholia/Configs\\", ""):gsub(".1337", "")
 				List[#List + 1] = FileName;
 			end;
 
@@ -5728,28 +5747,28 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		--
 		Cfgs:Button({Name = "Create", Callback = function()
 			local ConfigName = flags.SettingsConfigurationName;
-			if ConfigName == "" or isfile("Melancholia/Configs/" .. ConfigName .. ".cfg") then
+			if ConfigName == "" or isfile("melancholia/Configs/" .. ConfigName .. ".1337") then
 				return;
 			end;
-			writefile("Melancholia/Configs/" .. ConfigName .. ".cfg", Library:GetConfig());
+			writefile("melancholia/Configs/" .. ConfigName .. ".1337", Library:GetConfig());
 			UpdateConfigList();
 		end})
 		Cfgs:Button({Name = "Save", Callback = function()
 			local SelectedConfig = flags.SettingConfigurationList;
 			if SelectedConfig then
-				writefile("Melancholia/Configs/" .. SelectedConfig .. ".cfg", Library:GetConfig())
+				writefile("melancholia/Configs/" .. SelectedConfig .. ".1337", Library:GetConfig())
 			end;
 		end})
 		Cfgs:Button({Name = "Load", Callback = function()
 			local SelectedConfig = flags.SettingConfigurationList;
 			if SelectedConfig then
-				Library:LoadConfig(readfile("Melancholia/Configs/" .. SelectedConfig .. ".cfg"))
+				Library:LoadConfig(readfile("melancholia/Configs/" .. SelectedConfig .. ".1337"))
 			end
 		end})
 		Cfgs:Button({Name = "Delete", Callback = function()
 			local SelectedConfig = flags.SettingConfigurationList;
 			if SelectedConfig then
-				delfile("Melancholia/Configs/" .. SelectedConfig .. ".cfg")
+				delfile("melancholia/Configs/" .. SelectedConfig .. ".1337")
 			end
 			UpdateConfigList();
 		end})
@@ -6248,8 +6267,8 @@ do
 	end 	
 end 
 
-Library:Notification("Loaded melancholia.space in " .. Floor((tick() - loadingTime) * 1000)  .."ms", 3, Library.Accent, flags["Notification Position"])
-Library:Notification("WARNING: MAKE SURE YOU ARE USING THE CORRECT ARGUMENT FOR THE TARGET AIM OR YOU WILL GET BANNED", 3, Library.Accent, 5, Color3.new(1, 0, 0), flags["Notification Position"])
+Library:Notification("Loaded melancholia.lua in " .. Floor((tick() - loadingTime) * 1000)  .."ms", 3, Library.Accent, flags["Notification Position"])
+Library:Notification("Warning: if u got banned in dh while playing with melancholia it isnt our problem!", 3, Library.Accent, 5, Color3.new(1, 0, 0), flags["Notification Position"])
 delay(3, function()
-	Library:Notification("Message from owner\n Enjoy using melancholia.lua", 10, Library.Accent, flags["Notification Position"])
+	Library:Notification("Message from 9lives\n Enjoy Playing w melancholia.lua x)", 10, Library.Accent, flags["Notification Position"])
 end)
