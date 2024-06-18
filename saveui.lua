@@ -12,7 +12,7 @@ if not CopyToClipboard then
 end
 
 local SaveManager = {} do
-	SaveManager.Folder = getgenv().settings_folder or "melancholia"
+	SaveManager.Folder = getgenv().settings_folder or "visualsense"
 	SaveManager.Ignore = {}
 	SaveManager.Parser = {
 		Toggle = {
